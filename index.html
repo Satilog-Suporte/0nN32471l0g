@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Mensal</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /*
+         * ===================================================================
+         * ESTILOS CSS INSPIRADOS NO DESIGN ORIGINAL
+         * ===================================================================
+        */
+        :root {
+            --cor-fundo-escuro: #1a1d24;
+            --cor-texto-claro: #f1f1f1;
+            --cor-borda-sutil-escura: rgba(255, 255, 255, 0.1);
+            --cor-laranja-vibrante: #f96500;
+            --gradiente-laranja: linear-gradient(90deg, #f96500 0%, #e65a00 100%);
+            --sombra-laranja-glow: 0 0 25px rgba(249, 101, 0, 0.4);
+            --transition-suave: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--cor-fundo-escuro);
+            color: var(--cor-texto-claro);
+            margin: 0;
+            padding: 24px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            text-align: center;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--cor-borda-sutil-escura);
+            margin-bottom: 48px;
+        }
+
+        header img {
+            height: 50px;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px; /* Espaçamento entre os botões */
+            flex-wrap: wrap; /* Permite que os botões quebrem a linha em telas menores */
+            padding: 20px;
+        }
+
+        .month-button {
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition-suave);
+            text-decoration: none; /* Remove o sublinhado padrão do link */
+            color: var(--cor-texto-claro);
+            background: var(--gradiente-laranja);
+            border: none;
+            box-shadow: 0 4px 15px rgba(249, 101, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block; /* Necessário para que a tag <a> aceite padding corretamente */
+        }
+
+        .month-button:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--sombra-laranja-glow);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="LOGO.png" alt="Logo">
+    </header>
+
+    <main class="main-content">
+        <a href="https://satilog-suporte.github.io/s4t170g5203/" class="month-button" id="btn-maio">Maio - 2025</a>
+        <a href="https://satilog-suporte.github.io/s4t170g5202/" class="month-button" id="btn-junho">Junho - 2025</a>
+    </main>
+    
+    </body>
+</html>
