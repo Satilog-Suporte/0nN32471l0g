@@ -1,99 +1,224 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório Mensal</title>
-    
+    <title>Relatórios Mensais - 2025</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         /*
-         * ===================================================================
-         * ESTILOS CSS INSPIRADOS NO DESIGN ORIGINAL
-         * ===================================================================
-        */
+ * ===================================================================
+ * ESTILOS MODERNOS E OTIMIZADOS
+ * ===================================================================
+ */
+
+        /* Variáveis de Cor (Tema) */
         :root {
-            --cor-fundo-escuro: #1a1d24;
+            --cor-fundo-escuro: #121212;
+            --cor-fundo-container: #1a1d24;
             --cor-texto-claro: #f1f1f1;
-            --cor-borda-sutil-escura: rgba(255, 255, 255, 0.1);
+            --cor-texto-secundario: #a0a0a0;
+            --cor-borda-sutil: rgba(255, 255, 255, 0.1);
             --cor-laranja-vibrante: #f96500;
-            --gradiente-laranja: linear-gradient(90deg, #f96500 0%, #e65a00 100%);
-            --sombra-laranja-glow: 0 0 25px rgba(249, 101, 0, 0.4);
+            --gradiente-laranja: linear-gradient(45deg, #f96500 0%, #ff8c00 100%);
+            --sombra-laranja-glow: 0 0 25px rgba(249, 101, 0, 0.5);
             --transition-suave: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reset e Configurações Globais */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--cor-fundo-escuro);
+            background-image: radial-gradient(circle at top, rgba(38, 42, 51, 0.8), var(--cor-fundo-escuro));
             color: var(--cor-texto-claro);
             margin: 0;
-            padding: 24px;
+            padding: 2rem;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
         }
 
+        /* Cabeçalho */
         header {
             width: 100%;
+            max-width: 900px;
             text-align: center;
-            padding-bottom: 24px;
-            border-bottom: 1px solid var(--cor-borda-sutil-escura);
-            margin-bottom: 48px;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--cor-borda-sutil);
+            padding-bottom: 1.5rem;
         }
 
         header img {
-            height: 50px;
+            height: 45px;
+            margin-bottom: 1rem;
         }
 
-        .main-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 24px; /* Espaçamento entre os botões */
-            flex-wrap: wrap; /* Permite que os botões quebrem a linha em telas menores */
-            padding: 20px;
-        }
-
-        .month-button {
-            padding: 16px 32px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: var(--transition-suave);
-            text-decoration: none; /* Remove o sublinhado padrão do link */
+        header h1 {
+            font-size: 2rem;
+            font-weight: 600;
             color: var(--cor-texto-claro);
-            background: var(--gradiente-laranja);
-            border: none;
-            box-shadow: 0 4px 15px rgba(249, 101, 0, 0.2);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: inline-block; /* Necessário para que a tag <a> aceite padding corretamente */
+            margin: 0;
         }
 
+        /* Conteúdo Principal - Grade Responsiva */
+        .main-content {
+            width: 100%;
+            max-width: 900px;
+            display: grid;
+            /* Cria colunas responsivas: o máximo que couber com no mínimo 200px */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            flex-grow: 1;
+            /* Faz o main ocupar o espaço disponível */
+        }
+
+        /* Animação de Entrada dos Botões */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Estilo Base dos Botões */
+        .month-button,
+        .return-button {
+            text-decoration: none;
+            color: var(--cor-texto-claro);
+            padding: 1.25rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 12px;
+            transition: var(--transition-suave);
+            background: var(--cor-fundo-container);
+            border: 1px solid var(--cor-borda-sutil);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+
+            /* Aplica a animação */
+            opacity: 0;
+            /* Inicia invisível */
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        /* Atraso na animação para cada botão, criando um efeito cascata */
+        .month-button:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .month-button:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .month-button:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .month-button:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .month-button:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .month-button:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        /* Efeito Hover (passar o mouse) */
         .month-button:hover {
-            transform: translateY(-4px) scale(1.02);
+            transform: translateY(-5px);
+            background: var(--gradiente-laranja);
+            border-color: var(--cor-laranja-vibrante);
             box-shadow: var(--sombra-laranja-glow);
+            color: white;
         }
 
+        /* Estilo para Foco com Teclado (Acessibilidade) */
+        .month-button:focus-visible,
+        .return-button:focus-visible {
+            outline: 2px solid var(--cor-laranja-vibrante);
+            outline-offset: 2px;
+        }
+
+        /* Rodapé */
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .return-button {
+            background: transparent;
+            color: var(--cor-texto-secundario);
+            border: 1px solid var(--cor-borda-sutil);
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+        }
+
+        .return-button:hover {
+            color: var(--cor-texto-claro);
+            border-color: var(--cor-texto-claro);
+        }
+
+        /* Ajustes para telas menores (Mobile) */
+        @media (max-width: 600px) {
+            body {
+                padding: 1.5rem;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .main-content {
+                gap: 1rem;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <header>
-        <img src="LOGO.png" alt="Logo">
+        <img src="LOGO.png" alt="Logo da Sua Empresa">
+        <h1>Relatórios Mensais de 2025</h1>
     </header>
 
     <main class="main-content">
-        <a href="https://satilog-suporte.github.io/s4t170g5203mai/" class="month-button" id="btn-maio">Maio - 2025</a>
-        <a href="https://satilog-suporte.github.io/s4t170g5202jun/" class="month-button" id="btn-junho">Junho - 2025</a>
+        <a href="Janeiro/janeiro.html" class="month-button">Janeiro</a>
+        <a href="Fevereiro/Fevereiro.html" class="month-button">Fevereiro</a>
+        <a href="Março/Março.html" class="month-button">Março</a>
+        <a href="Abril/Abril.html" class="month-button">Abril</a>
+        <a href="Maio/Maio.html" class="month-button">Maio</a>
+        <a href="Junho/Junho.html" class="month-button">Junho</a>
     </main>
-    
-    </body>
+
+    <footer>
+        <a href="https://script.google.com/macros/s/AKfycbysAxdwf0wLQe7rmkPbuOpmZhx6Q4ggJnpHBzT1PNhNCwbkN-H8hRDk4hOvlJqRXEVqrg/exec"
+            class="return-button" rel="noopener noreferrer">Página Inicial</a>
+    </footer>
+
+</body>
+
 </html>
