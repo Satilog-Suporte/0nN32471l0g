@@ -11,189 +11,199 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-    /*
- * ===================================================================
- * ESTILOS MODERNOS E OTIMIZADOS (MODIFICADO)
- * ===================================================================
- */
+        /* ===================================================================
+         * ESTILOS MODERNOS E OTIMIZADOS V2.0
+         * ===================================================================
+         */
 
-/* Variáveis de Cor (Tema) */
-:root {
-    --cor-fundo-escuro: #121212;
-    --cor-fundo-container: #1a1d24;
-    --cor-texto-claro: #f1f1f1;
-    --cor-texto-secundario: #a0a0a0;
-    --cor-borda-sutil: rgba(255, 255, 255, 0.1);
-    --cor-laranja-vibrante: #f96500;
-    --gradiente-laranja: linear-gradient(45deg, #f96500 0%, #ff8c00 100%);
-    --sombra-laranja-glow: 0 0 25px rgba(249, 101, 0, 0.5);
-    --transition-suave: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
+        :root {
+            --cor-fundo-escuro: #0D1117;
+            --cor-fundo-container: #161B22;
+            --cor-texto-claro: #E6EDF3;
+            --cor-texto-secundario: #8B949E;
+            --cor-borda-sutil: #30363D;
+            --cor-laranja-vibrante: #F98222;
+            --gradiente-laranja: linear-gradient(45deg, #F98222 0%, #FFB800 100%);
+            --sombra-laranja-glow: 0 0 30px rgba(249, 130, 34, 0.4);
+            --transition-suave: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-/* Reset e Configurações Globais */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--cor-fundo-escuro);
-    background-image: radial-gradient(circle at top, rgba(38, 42, 51, 0.8), var(--cor-fundo-escuro));
-    color: var(--cor-texto-claro);
-    margin: 0;
-    padding: 2rem;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--cor-fundo-escuro);
+            color: var(--cor-texto-claro);
+            margin: 0;
+            padding: 2rem;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-/* Cabeçalho */
-header {
-    width: 100%;
-    max-width: 900px;
-    text-align: center;
-    margin-bottom: 3rem;
-    border-bottom: 1px solid var(--cor-borda-sutil);
-    padding-bottom: 1.5rem;
-}
+        /* Cabeçalho */
+        header {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--cor-borda-sutil);
+            padding-bottom: 2rem;
+        }
 
-header img {
-    height: 45px;
-    margin-bottom: 1rem;
-}
+        header img {
+            height: 50px;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+        }
 
-header h1 {
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--cor-texto-claro);
-    margin: 0;
-}
+        header h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--cor-texto-claro);
+            margin: 0;
+            line-height: 1.2;
+        }
 
-/* Conteúdo Principal - Layout Horizontal */
-.main-content {
-    width: 100%;
-    max-width: 900px;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    overflow-x: auto; /* Adiciona barra de rolagem horizontal se necessário */
-    padding: 1rem 0; /* Adiciona um pouco de padding vertical */
-}
+        /* Conteúdo Principal - Layout em Grid */
+        .main-content {
+            width: 100%;
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.5rem;
+        }
 
-/* Animação de Entrada dos Botões */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        /* Animação de Entrada dos Cards */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-/* Estilo Base dos Botões (Menores Horizontalmente, Fonte Maior) */
-.month-button,
-.return-button {
-    text-decoration: none;
-    color: var(--cor-texto-claro);
-    padding: 1rem 1.5rem; /* Reduzindo o padding horizontal */
-    font-size: 1.2rem; /* Aumentando a fonte */
-    font-weight: 600;
-    text-align: center;
-    border-radius: 12px;
-    transition: var(--transition-suave);
-    background: var(--cor-fundo-container);
-    border: 1px solid var(--cor-borda-sutil);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    white-space: nowrap; /* Evita quebras de linha nos botões */
+        /* Estilo dos Cards de Mês */
+        .month-card {
+            text-decoration: none;
+            color: var(--cor-texto-claro);
+            padding: 2rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 12px;
+            transition: var(--transition-suave);
+            background: var(--cor-fundo-container);
+            border: 1px solid var(--cor-borda-sutil);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
 
-    /* Aplica a animação */
-    opacity: 0; /* Inicia invisível */
-    animation: fadeInUp 0.5s ease-out forwards;
-}
+            /* Aplica a animação */
+            opacity: 0;
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+        
+        /* Atraso na animação para cada card */
+        .month-card:nth-child(1) { animation-delay: 0.1s; }
+        .month-card:nth-child(2) { animation-delay: 0.15s; }
+        .month-card:nth-child(3) { animation-delay: 0.2s; }
+        .month-card:nth-child(4) { animation-delay: 0.25s; }
+        .month-card:nth-child(5) { animation-delay: 0.3s; }
+        .month-card:nth-child(6) { animation-delay: 0.35s; }
+        .month-card:nth-child(7) { animation-delay: 0.4s; }
+        .month-card:nth-child(8) { animation-delay: 0.45s; }
+        .month-card:nth-child(9) { animation-delay: 0.5s; }
+        .month-card:nth-child(10) { animation-delay: 0.55s; }
+        .month-card:nth-child(11) { animation-delay: 0.6s; }
+        .month-card:nth-child(12) { animation-delay: 0.65s; }
 
-/* Atraso na animação para cada botão */
-.month-button:nth-child(1) { animation-delay: 0.1s; }
-.month-button:nth-child(2) { animation-delay: 0.2s; }
-.month-button:nth-child(3) { animation-delay: 0.3s; }
-.month-button:nth-child(4) { animation-delay: 0.4s; }
-.month-button:nth-child(5) { animation-delay: 0.5s; }
-.month-button:nth-child(6) { animation-delay: 0.6s; }
+        /* Efeito de Borda Brilhante no Hover */
+        .month-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: inherit;
+            border: 2px solid transparent;
+            background: var(--gradiente-laranja) border-box;
+            -webkit-mask:
+                linear-gradient(#fff 0 0) padding-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
 
-/* Efeito Hover */
-.month-button:hover {
-    transform: translateY(-5px);
-    background: var(--gradiente-laranja);
-    border-color: var(--cor-laranja-vibrante);
-    box-shadow: var(--sombra-laranja-glow);
-    color: white;
-}
+        .month-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-laranja-glow);
+        }
 
-/* Estilo para Foco com Teclado */
-.month-button:focus-visible,
-.return-button:focus-visible {
-    outline: 2px solid var(--cor-laranja-vibrante);
-    outline-offset: 2px;
-}
+        .month-card:hover::before {
+            opacity: 1;
+        }
 
-/* Rodapé */
-footer {
-    margin-top: 3rem;
-    text-align: center;
-}
+        /* Estilo para Foco com Teclado */
+        .month-card:focus-visible,
+        .return-button:focus-visible {
+            outline: 2px solid var(--cor-laranja-vibrante);
+            outline-offset: 2px;
+        }
 
-.return-button {
-    background: transparent;
-    color: var(--cor-texto-secundario);
-    border: 1px solid var(--cor-borda-sutil);
-    padding: 0.75rem 1.5rem;
-    font-weight: 500;
-}
+        /* Rodapé */
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+        }
 
-.return-button:hover {
-    color: var(--cor-texto-claro);
-    border-color: var(--cor-texto-claro);
-}
+        .return-button {
+            text-decoration: none;
+            color: var(--cor-texto-secundario);
+            border: 1px solid var(--cor-borda-sutil);
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: var(--transition-suave);
+        }
 
-/* Ajustes para telas menores (Mobile) - O layout flexível cuidará da adaptação */
-@media (max-width: 600px) {
-    body {
-        padding: 1.5rem;
-    }
-
-    header h1 {
-        font-size: 1.5rem;
-    }
-
-    .main-content {
-        padding: 1rem;
-    }
-}
+        .return-button:hover {
+            color: var(--cor-texto-claro);
+            border-color: var(--cor-texto-claro);
+            background-color: var(--cor-fundo-container);
+        }
     </style>
 </head>
 
 <body>
 
     <header>
-        <img src="LOGO.png" alt="Logo da Sua Empresa">
+        <img src="https://placehold.co/200x60/161B22/E6EDF3?text=Sua+Logo" alt="Logo da Sua Empresa">
         <h1>Relatórios Mensais de 2025</h1>
     </header>
 
     <main class="main-content">
-        <a href="Janeiro/janeiro.html" class="month-button">Janeiro</a>
-        <a href="Fevereiro/Fevereiro.html" class="month-button">Fevereiro</a>
-        <a href="Março/Março.html" class="month-button">Março</a>
-        <a href="Abril/Abril.html" class="month-button">Abril</a>
-        <a href="Maio/Maio.html" class="month-button">Maio</a>
-        <a href="Junho/Junho.html" class="month-button">Junho</a>
-        <a href="Julho/Julho.html" class="month-button">Julho</a>
+        <a href="Janeiro/janeiro.html" class="month-card">Janeiro</a>
+        <a href="Fevereiro/Fevereiro.html" class="month-card">Fevereiro</a>
+        <a href="Março/Março.html" class="month-card">Março</a>
+        <a href="Abril/Abril.html" class="month-card">Abril</a>
+        <a href="Maio/Maio.html" class="month-card">Maio</a>
+        <a href="Junho/Junho.html" class="month-card">Junho</a>
+        <a href="Julho/Julho.html" class="month-card">Julho</a>
     </main>
 
     <footer>
@@ -204,4 +214,3 @@ footer {
 </body>
 
 </html>
-
